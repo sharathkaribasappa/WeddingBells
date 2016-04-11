@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">WeddingBells</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_event_list">EventList</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="EventsList">List Of Events</string>
+    <string name="EventDescription">Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015 2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.</string>
+    <string name="profilePicComments">Profile Pic Comments</string>
+    <string name="commentExample">Congrats on the event. Have fun!!</string>
+    <string name = "nameExample">User Name</string>
+
+    <string name="fastscroller_handle">Yessss</string>
+    <string name="fastscroller_track">Yessss1</string>
+
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="male_gender">Male</string>
+    <string name="female_gender">Female</string>
+    <string name="signup">Submit</string>
+    <string name="register">Register</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="weak_password">password is weak</string>
+    <string name="title_activity_events_list">EventsList</string>
+</resources>
