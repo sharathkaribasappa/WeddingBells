@@ -60,8 +60,8 @@ public class RecyclerViewAdapter_UpdatesList extends
 
     @Override
     public void onBindViewHolder(MainViewHolder viewHolder, int position) {
-        mImageView.setImageDrawable(Drawable.createFromPath(mDataSet.get(position)
-                .getmImage().toString()));
+//        mImageView.setImageDrawable(Drawable.createFromPath(mDataSet.get(position)
+//                .getmImage().toString()));
     }
 
     public void setOnItemClickListener(MyClickListener myClickListener) {

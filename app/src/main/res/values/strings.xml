@@ -40,4 +40,5 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="weak_password">password is weak</string>
     <string name="title_activity_events_list">EventsList</string>
+    <string name="filter">Filter</string>
 </resources>

@@ -1,15 +1,11 @@
 
-package com.andriod.weddingbells.Adapters;
+package com.andriod.weddingbells.notUsed;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import com.andriod.weddingbells.cardlayoutfunctionality.EventListDataObject;
 import com.andriod.weddingbells.R;
-import com.andriod.weddingbells.R.id;
-import com.andriod.weddingbells.R.layout;
-import com.andriod.weddingbells.R.menu;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -21,11 +17,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class RecyclerViewAdapter_EventsList extends RecyclerView
-        .Adapter<RecyclerViewAdapter_EventsList
+public class RecyclerViewAdapter_EventsList_Old extends RecyclerView
+        .Adapter<RecyclerViewAdapter_EventsList_Old
         .MainViewHolder> {
-    private final String LOG_TAG = "RecyclerViewAdapter_EventsList";
-    private ArrayList<EventListDataObject> mDataset;
+    private final String LOG_TAG = "RecyclerViewAdapter_EventsList_Old";
+    private ArrayList<EventListDataObject_old> mDataset;
     private static MyClickListener myClickListener;
     static Context mCtx;
     private static final int TYPE_HEADING = 0;
@@ -108,7 +104,7 @@ public class RecyclerViewAdapter_EventsList extends RecyclerView
         this.myClickListener = myClickListener;
     }
 
-    public RecyclerViewAdapter_EventsList(ArrayList<EventListDataObject> myDataset) {
+    public RecyclerViewAdapter_EventsList_Old(ArrayList<EventListDataObject_old> myDataset) {
         mDataset = myDataset;
     }
 
@@ -143,7 +139,7 @@ public class RecyclerViewAdapter_EventsList extends RecyclerView
         }
     }
 
-    public void addItem(EventListDataObject dataObj, int index) {
+    public void addItem(EventListDataObject_old dataObj, int index) {
         mDataset.add(index, dataObj);
         notifyItemInserted(index);
     }

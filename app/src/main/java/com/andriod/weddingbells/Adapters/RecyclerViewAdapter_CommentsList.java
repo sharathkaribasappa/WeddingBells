@@ -3,16 +3,11 @@ package com.andriod.weddingbells.Adapters;
 
 import java.util.ArrayList;
 
-import com.andriod.weddingbells.Adapters.RecyclerViewAdapter_EventsList.DataObjectHolder;
-import com.andriod.weddingbells.Adapters.RecyclerViewAdapter_EventsList.MyClickListener;
-import com.andriod.weddingbells.cardlayoutfunctionality.EventListDataObject;
 import com.andriod.weddingbells.R;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

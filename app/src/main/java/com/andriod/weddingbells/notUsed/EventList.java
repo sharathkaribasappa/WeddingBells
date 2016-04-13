@@ -1,4 +1,4 @@
-package com.andriod.weddingbells.cardlayoutfunctionality;
+package com.andriod.weddingbells.notUsed;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,9 +19,7 @@ import android.view.MenuItem;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
 
-import com.andriod.weddingbells.Adapters.RecyclerViewAdapter_EventsList;
 import com.andriod.weddingbells.R;
-import com.andriod.weddingbells.cardlayoutfunctionality.EventListDataObject;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -32,7 +30,7 @@ public class EventList extends AppCompatActivity
     private static String LOG_TAG = "EventList";
 
     private RecyclerView mRecyclerView;
-    private RecyclerViewAdapter_EventsList mAdapter;
+    private RecyclerViewAdapter_EventsList_Old mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
@@ -64,7 +62,7 @@ public class EventList extends AppCompatActivity
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this, LinearLayout.VERTICAL, false);//true for reverse layout
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new RecyclerViewAdapter_EventsList(getDataSet());
+        mAdapter = new RecyclerViewAdapter_EventsList_Old(getDataSet());
         mRecyclerView.setAdapter(mAdapter);
 
         createFolder();
@@ -83,7 +81,7 @@ public class EventList extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        ((RecyclerViewAdapter_EventsList) mAdapter).setOnItemClickListener(new RecyclerViewAdapter_EventsList
+        ((RecyclerViewAdapter_EventsList_Old) mAdapter).setOnItemClickListener(new RecyclerViewAdapter_EventsList_Old
                 .MyClickListener() {
             @Override
             public void onItemClick(int position, View v) {
@@ -141,10 +139,10 @@ public class EventList extends AppCompatActivity
         return true;
     }
 
-    private ArrayList<EventListDataObject> getDataSet() {
-        ArrayList<EventListDataObject> results = new ArrayList<EventListDataObject>();
+    private ArrayList<EventListDataObject_old> getDataSet() {
+        ArrayList<EventListDataObject_old> results = new ArrayList<EventListDataObject_old>();
         for (int index = 0; index < 20; index++) {
-            EventListDataObject obj = new EventListDataObject(getImage(),"Title" + index, "Some Primary Text " + index,
+            EventListDataObject_old obj = new EventListDataObject_old(getImage(),"Title" + index, "Some Primary Text " + index,
                     "Secondary " + index);
             results.add(index, obj);
         }

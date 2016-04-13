@@ -23,17 +23,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".cardlayoutfunctionality.EventList"
+            android:name=".notUsed.EventList"
             android:label="@string/title_activity_event_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".cardlayoutfunctionality.EventDetailsActivity"
+            android:name=".notUsed.EventDetailsActivity"
             android:label="Details"
             android:theme="@style/AppThemeMaterial">
         <activity
             android:name=".RegistrationActivity"
             android:label="@string/register"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        </activity>
+
+        <activity
+            android:name=".cardlayoutfunctionality.ListEventsActivityRedone"
+            android:label="@string/EventsList"
+            android:theme="@style/AppCompatThemeWithActionBar">
+        </activity>
+        <activity
+            android:name=".cardlayoutfunctionality.EventDetailsActivityNew"
+            android:label="Details"
+            android:theme="@style/AppCompatTheme">
         </activity>
     </application>
 

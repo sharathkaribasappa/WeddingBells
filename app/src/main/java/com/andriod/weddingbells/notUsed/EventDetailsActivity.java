@@ -1,5 +1,5 @@
 
-package com.andriod.weddingbells.cardlayoutfunctionality;
+package com.andriod.weddingbells.notUsed;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Vector;
 
 import com.andriod.weddingbells.Adapters.PagerAdapter;
+import com.andriod.weddingbells.cardlayoutfunctionality.EventDetailsCommentsFragment;
+import com.andriod.weddingbells.cardlayoutfunctionality.EventDetailsUpdatesFragment;
+import com.andriod.weddingbells.cardlayoutfunctionality.EventDetailsUserListFragment;
+import com.andriod.weddingbells.cardlayoutfunctionality.TabFactory;
 import com.andriod.weddingbells.common.BitmapScaler;
 
 import android.os.Bundle;
@@ -15,8 +19,6 @@ import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;

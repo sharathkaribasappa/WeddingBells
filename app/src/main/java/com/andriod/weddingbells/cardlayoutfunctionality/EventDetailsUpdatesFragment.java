@@ -38,7 +38,7 @@ public class EventDetailsUpdatesFragment extends Fragment {
         View rootview = inflater.inflate(R.layout.updates_fragment_layout, container, false);
         mRecyclerView = (RecyclerView) rootview.findViewById(R.id.recycler_view_updates);
         mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this.getActivity(), LinearLayout.HORIZONTAL, false);//true for reverse layout
+        mLayoutManager = new LinearLayoutManager(this.getActivity(), LinearLayout.VERTICAL, false);//true for reverse layout
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new RecyclerViewAdapter_UpdatesList(getDataSet());
         mRecyclerView.setAdapter(mAdapter);

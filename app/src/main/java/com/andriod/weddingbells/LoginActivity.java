@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         if(true) {
             Intent I = new Intent();
-            I.setClassName("com.andriod.weddingbells","com.andriod.weddingbells.cardlayoutfunctionality.EventList");
+            I.setClassName("com.andriod.weddingbells","com.andriod.weddingbells.cardlayoutfunctionality.ListEventsActivityRedone");
             startActivity(I);
             finish();
         }
