@@ -1,5 +1,6 @@
 package com.andriod.weddingbells.cardlayoutfunctionality;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +46,8 @@ public class ListEventsActivityRedone extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),"Add Event",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(),CreateEvent.class);
+                startActivity(intent);
             }
         });
     }

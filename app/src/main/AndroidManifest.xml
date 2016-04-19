@@ -25,27 +25,27 @@
         <activity
             android:name=".notUsed.EventList"
             android:label="@string/title_activity_event_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".notUsed.EventDetailsActivity"
             android:label="Details"
             android:theme="@style/AppThemeMaterial">
-        <activity
-            android:name=".RegistrationActivity"
-            android:label="@string/register"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            <activity
+                android:name=".RegistrationActivity"
+                android:label="@string/register"
+                android:theme="@style/AppTheme.NoActionBar" />
         </activity>
-
         <activity
             android:name=".cardlayoutfunctionality.ListEventsActivityRedone"
             android:label="@string/EventsList"
-            android:theme="@style/AppCompatThemeWithActionBar">
-        </activity>
+            android:theme="@style/AppCompatThemeWithActionBar"></activity>
         <activity
             android:name=".cardlayoutfunctionality.EventDetailsActivityNew"
             android:label="Details"
-            android:theme="@style/AppCompatTheme">
-        </activity>
+            android:theme="@style/AppCompatTheme"></activity>
+        <activity
+            android:name=".cardlayoutfunctionality.CreateEvent"
+            android:theme="@style/AppCompatTheme"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/create_event_menu_recordAudio"
+        android:icon="@android:drawable/ic_btn_speak_now"
+        android:title="Record Audio Message"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/create_event_menu_recordVideo"
+        android:icon="@android:drawable/presence_video_online"
+        android:title="Attach Video"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/create_event_menu_clearAllFields"
+        android:title="Clear All Fields"
+        app:showAsAction="never" />
+</menu>
+
