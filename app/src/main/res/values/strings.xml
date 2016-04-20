@@ -49,6 +49,7 @@
     <string name="createEventScreen_date">Date</string>
     <string name="createEventScreen_time">Time</string>
     <string name="createEventScreen_invitees">Select Invitees</string>
+    <string name="pick_image_intent_text">Select Image</string>
 
     <string name="Submit">Submit</string>
 

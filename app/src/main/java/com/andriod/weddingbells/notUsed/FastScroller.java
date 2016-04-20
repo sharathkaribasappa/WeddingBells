@@ -1,5 +1,5 @@
 
-package com.andriod.weddingbells.cardlayoutfunctionality;
+package com.andriod.weddingbells.notUsed;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

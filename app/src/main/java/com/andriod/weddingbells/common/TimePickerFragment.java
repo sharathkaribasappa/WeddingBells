@@ -1,5 +1,6 @@
 package com.andriod.weddingbells.common;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -7,10 +8,14 @@ import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
 import android.widget.TimePicker;
 
+import com.andriod.weddingbells.cardlayoutfunctionality.CreateEvent;
+
 import java.util.Calendar;
 
 public class TimePickerFragment extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {
+
+    private CreateEvent mCallback;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -24,6 +29,22 @@ public class TimePickerFragment extends DialogFragment
                 DateFormat.is24HourFormat(getActivity()));
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mCallback = (CreateEvent) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement CreateEvent");
+        }
+    }
+
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        mCallback.onTimeSetSuccessfully(hourOfDay,minute);
+    }
+
+    public interface TimePickerInterface{
+        public void onTimeSetSuccessfully(int hourOfDay, int minute);
     }
 }

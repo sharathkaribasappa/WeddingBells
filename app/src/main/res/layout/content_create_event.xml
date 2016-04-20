@@ -18,7 +18,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/eventImage"
+                android:id="@+id/CreateEventEventImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/bat"
@@ -40,11 +40,13 @@
                 app:layout_collapseMode="parallax">
 
                 <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/createEventChangeEventPic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|end"
                     android:layout_margin="5dp"
-                    android:src="@android:drawable/ic_menu_edit" />
+                    android:src="@android:drawable/ic_menu_edit"
+                    android:contentDescription="Edit Event Pic"/>
             </LinearLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -152,17 +154,20 @@
 
 
                         <Button
-                            style="@style/Widget.AppCompat.Button.Colored"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:id="@+id/createEventDateSelector"
-                            android:text="@string/createEventScreen_date"
-                            android:onClick="ShowDatePicker"/>
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="30"
+                            android:onClick="ShowDatePicker"
+                            android:text="@string/createEventScreen_date" />
 
                         <TextView
-                            android:id="@+id/showSelectedDate"
-                            android:layout_width="match_parent"
+                            android:id="@+id/createEventShowSelectedDate"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="2dp"
                             android:layout_weight="70"
                             android:text="Event Date Not Selected"
                             android:textColor="@color/colorPrimary"
@@ -180,19 +185,22 @@
 
 
                         <Button
-                            style="@style/Widget.AppCompat.Button.Colored"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:id="@+id/createEventTimeSelector"
-                            android:text="@string/createEventScreen_time"
-                            android:onClick="ShowTimePicker"/>
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="0dp"
+                            android:layout_weight="30"
+                            android:layout_height="wrap_content"
+                            android:onClick="ShowTimePicker"
+                            android:text="@string/createEventScreen_time" />
 
                         <TextView
-                            android:id="@+id/showSelectedTime"
-                            android:layout_width="match_parent"
+                            android:id="@+id/createEventShowSelectedTime"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="2dp"
                             android:layout_weight="70"
-                            android:text="Event Date and Time Not Selected"
+                            android:text="Event Time Not Selected"
                             android:textColor="@color/colorPrimary"
                             android:textSize="15sp" />
 
