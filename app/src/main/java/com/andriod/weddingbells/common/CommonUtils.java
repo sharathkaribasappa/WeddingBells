@@ -22,7 +22,7 @@ public class CommonUtils {
         return filePath;
     }
 
-    private static String getDirectory() {
+    public static String getDirectory() {
         String mImagesFolder = null;
         if (Environment.getExternalStorageState() == null) {
             mImagesFolder = Environment.getDataDirectory().getAbsolutePath()
@@ -34,5 +34,4 @@ public class CommonUtils {
 
         return mImagesFolder;
     }
-
 }

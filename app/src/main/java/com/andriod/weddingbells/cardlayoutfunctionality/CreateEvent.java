@@ -8,19 +8,15 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
-import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.andriod.weddingbells.R;
 import com.andriod.weddingbells.common.DatePickerFragment;
@@ -80,13 +76,18 @@ public class CreateEvent extends AppCompatActivity implements DatePickerFragment
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.create_event_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.create_event_menu_recordAudio:
+                RecorderDialogFragment fragment1 = new RecorderDialogFragment();
+                fragment1.show(getSupportFragmentManager(), "RecorderFragment");
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 

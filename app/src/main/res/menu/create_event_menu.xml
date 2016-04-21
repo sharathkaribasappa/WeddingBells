@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/create_event_menu_recordAudio"
-        android:icon="@android:drawable/ic_btn_speak_now"
+        android:icon="@android:drawable/ic_notification_overlay"
         android:title="Record Audio Message"
         app:showAsAction="ifRoom" />
     <item

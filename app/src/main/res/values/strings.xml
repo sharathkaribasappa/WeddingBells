@@ -13,6 +13,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="permission_rationale_audio">"Click to get Audio and Storage permissions needed for providing recordings."
+    </string>
     <string name="title_activity_event_list">EventList</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -50,6 +52,10 @@
     <string name="createEventScreen_time">Time</string>
     <string name="createEventScreen_invitees">Select Invitees</string>
     <string name="pick_image_intent_text">Select Image</string>
+
+    <string name="recorderDialog_Play">Play</string>
+    <string name="recorderDialog_Record_Start">Start</string>
+    <string name="recorderDialog_Record_Stop">Stop</string>
 
     <string name="Submit">Submit</string>
 
