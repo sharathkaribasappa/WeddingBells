@@ -57,6 +57,9 @@
     <string name="recorderDialog_Record_Start">Start</string>
     <string name="recorderDialog_Record_Stop">Stop</string>
 
+    <string name="mainEventScreenIntro_line1">Hi Karthik.</string>
+    <string name="mainEventScreenIntro_line2">Browse through events scheduled for each day. Respond to invites and post updates of these events for others to see.</string>
+
     <string name="Submit">Submit</string>
 
     <!-- TODO: Remove or change this placeholder text -->

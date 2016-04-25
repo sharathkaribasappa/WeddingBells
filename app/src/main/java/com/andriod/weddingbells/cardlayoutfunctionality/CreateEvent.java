@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.andriod.weddingbells.R;
@@ -32,18 +33,21 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class CreateEvent extends AppCompatActivity implements DatePickerFragment.DatePickerInterface,TimePickerFragment.TimePickerInterface,View.OnClickListener{
+public class CreateEvent extends AppCompatActivity implements DatePickerFragment.DatePickerInterface, TimePickerFragment.TimePickerInterface, View.OnClickListener {
     private CollapsingToolbarLayout mCollapsingToolbar;
     private TextView mDateTextView;
     private TextView mTimeTextView;
     private FloatingActionButton mEditImageButton;
     private ImageView mEventImage;
+    private LinearLayout mSubEventLayout;
     private static final int PICK_IMAGE_ID = 234;
+    private String mEventType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_create_event);
+        mEventType = getIntent().getStringExtra("EventType");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -51,12 +55,12 @@ public class CreateEvent extends AppCompatActivity implements DatePickerFragment
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         mCollapsingToolbar.setTitle("Create Event");
         dynamicToolbarColor();
-
-        mDateTextView = (TextView)findViewById(R.id.createEventShowSelectedDate);
-        mTimeTextView = (TextView)findViewById(R.id.createEventShowSelectedTime);
-        mEditImageButton = (FloatingActionButton)findViewById(R.id.createEventChangeEventPic);
+        mSubEventLayout = (LinearLayout) findViewById(R.id.CreateSubEvent_title_layout);
+        mDateTextView = (TextView) findViewById(R.id.createEventShowSelectedDate);
+        mTimeTextView = (TextView) findViewById(R.id.createEventShowSelectedTime);
+        mEditImageButton = (FloatingActionButton) findViewById(R.id.createEventChangeEventPic);
         mEditImageButton.setOnClickListener(this);
-        mEventImage = (ImageView)findViewById(R.id.CreateEventEventImage);
+        mEventImage = (ImageView) findViewById(R.id.CreateEventEventImage);
     }
 
     private void dynamicToolbarColor() {
@@ -82,7 +86,7 @@ public class CreateEvent extends AppCompatActivity implements DatePickerFragment
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.create_event_menu_recordAudio:
                 RecorderDialogFragment fragment1 = new RecorderDialogFragment();
                 fragment1.show(getSupportFragmentManager(), "RecorderFragment");
@@ -94,23 +98,26 @@ public class CreateEvent extends AppCompatActivity implements DatePickerFragment
     @Override
     protected void onResume() {
         super.onResume();
-
+        if (mEventType.equalsIgnoreCase("MainEvent")) {
+            mSubEventLayout.setVisibility(View.GONE);
+        } else {
+            //remove the main event textview and replace with dropdown of main events
+        }
     }
 
 
-
-    public void ShowDatePicker(View v){
+    public void ShowDatePicker(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
-    public void ShowTimePicker(View v){
+    public void ShowTimePicker(View v) {
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 
     @Override
-    public void onDateSelectedSuccessfully(int year, int month, int day){
+    public void onDateSelectedSuccessfully(int year, int month, int day) {
         String DATE_FORMAT = "MMM dd, yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
         Calendar calendar = Calendar.getInstance();
@@ -124,13 +131,13 @@ public class CreateEvent extends AppCompatActivity implements DatePickerFragment
     @Override
     public void onTimeSetSuccessfully(int hourOfDay, int minute) {
         TimeZone timezone = TimeZone.getDefault();
-        mTimeTextView.setText(""+hourOfDay+" : " + minute + " , " + timezone.getDisplayName(false, TimeZone.SHORT));
+        mTimeTextView.setText("" + hourOfDay + " : " + minute + " , " + timezone.getDisplayName(false, TimeZone.SHORT));
     }
 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.createEventChangeEventPic:
                 Intent chooseImageIntent = ImagePicker.getPickImageIntent(this);
                 startActivityForResult(chooseImageIntent, PICK_IMAGE_ID);
@@ -138,7 +145,7 @@ public class CreateEvent extends AppCompatActivity implements DatePickerFragment
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch(requestCode) {
+        switch (requestCode) {
             case PICK_IMAGE_ID:
                 Bitmap bitmap = ImagePicker.getImageFromResult(this, resultCode, data);
                 mEventImage.setImageBitmap(bitmap);
