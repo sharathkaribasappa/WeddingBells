@@ -1,7 +1,5 @@
 package com.andriod.weddingbells.cardlayoutfunctionality;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,14 +20,11 @@ import android.widget.TextView;
 import com.andriod.weddingbells.R;
 import com.andriod.weddingbells.common.DatePickerFragment;
 import com.andriod.weddingbells.common.ImagePicker;
+import com.andriod.weddingbells.common.RecorderDialogFragment;
 import com.andriod.weddingbells.common.TimePickerFragment;
-
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 

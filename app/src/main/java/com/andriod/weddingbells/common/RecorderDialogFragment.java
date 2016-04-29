@@ -1,4 +1,4 @@
-package com.andriod.weddingbells.cardlayoutfunctionality;
+package com.andriod.weddingbells.common;
 
 import android.annotation.TargetApi;
 import android.content.DialogInterface;

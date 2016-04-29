@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/list_events_menu_dateView"
+        android:title="April 25"
+        android:orderInCategory="2"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/create_event_menu_clearAllFields"
+        android:title="Settings"
+        app:showAsAction="never" />
+</menu>
+
