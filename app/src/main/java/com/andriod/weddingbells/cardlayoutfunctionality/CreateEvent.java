@@ -136,6 +136,7 @@ public class CreateEvent extends AppCompatActivity implements DatePickerFragment
             case R.id.createEventChangeEventPic:
                 Intent chooseImageIntent = ImagePicker.getPickImageIntent(this);
                 startActivityForResult(chooseImageIntent, PICK_IMAGE_ID);
+                break;
         }
     }
 

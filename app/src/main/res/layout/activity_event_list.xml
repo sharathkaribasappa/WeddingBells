@@ -9,7 +9,7 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/app_bar_event_list"
+        layout="@layout/list_event_main_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
