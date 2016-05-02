@@ -68,7 +68,9 @@
                 android:id="@+id/main_event_listview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scrollbars="vertical" />
+                android:scrollbars="vertical"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="10dp"/>
 
 
         </LinearLayout>

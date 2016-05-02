@@ -1,6 +1,7 @@
 package com.andriod.weddingbells.Adapters;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ public class RecyclerViewAdapter_MainEventList extends
             mImageView = (ImageView) itemView.findViewById(R.id.eventListReDone_imageview);
             mToolBar = (Toolbar) itemView.findViewById(R.id.card_view_toolbar_reimagined);
             mToolBar.inflateMenu(R.menu.main);
+            mToolBar.setTitleTextColor(mContext.getResources().getColor(android.R.color.white));
             itemView.setOnClickListener(this);
         }
 
@@ -61,6 +63,7 @@ public class RecyclerViewAdapter_MainEventList extends
     @Override
     public void onBindViewHolder(RecyclerViewAdapter_MainEventList.MainViewHolder holder, int position) {
         holder.mToolBar.setTitle(mDataSet.get(position).getTitle());
+
     }
 
     public void setOnItemClickListener(MyClickListener myClickListener) {

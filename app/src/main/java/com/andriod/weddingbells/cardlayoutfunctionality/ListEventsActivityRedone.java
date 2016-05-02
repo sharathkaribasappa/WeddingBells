@@ -1,5 +1,6 @@
 package com.andriod.weddingbells.cardlayoutfunctionality;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,12 +8,12 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
@@ -59,6 +60,13 @@ public class ListEventsActivityRedone extends AppCompatActivity implements View.
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         mCalenderDialog = new CalendarDialogFragment();
+        addHeaderView();
+    }
+
+    private void addHeaderView() {
+
+        View headerview = ((LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.list_event_intro, null, false);
+        mListView.addHeaderView(headerview);
     }
 
     @Override
@@ -71,18 +79,18 @@ public class ListEventsActivityRedone extends AppCompatActivity implements View.
 
     private ArrayList<MainEventListObjectNew> getData() {
         ArrayList<MainEventListObjectNew> list = new ArrayList<MainEventListObjectNew>();
-        for (int i = 1; i < 21; i++) {
-            if (i == 1) {
-                String introText = getResources().getString(R.string.mainEventScreenIntro_line1) + "\n" + getResources().getString(R.string.mainEventScreenIntro_line2);
-                list.add(new MainEventListObjectNew(introText));
-            } else {
-                Date today = new Date();
-                SimpleDateFormat formattedDate = new SimpleDateFormat("EEE, MMM d, ''yy");
-                Calendar c = Calendar.getInstance();
-                c.add(Calendar.DATE, i);
-                String finalDate = (String) (formattedDate.format(c.getTime()));
-                list.add(new MainEventListObjectNew(finalDate));
-            }
+        for (int i = 0; i < 21; i++) {
+//            if (i == 0) {
+//                String introText = getResources().getString(R.string.mainEventScreenIntro_line1) + "\n" + getResources().getString(R.string.mainEventScreenIntro_line2);
+//                list.add(new MainEventListObjectNew(introText));
+//            } else {
+            Date today = new Date();
+            SimpleDateFormat formattedDate = new SimpleDateFormat("EEE, MMM d, ''yy");
+            Calendar c = Calendar.getInstance();
+            c.add(Calendar.DATE, i);
+            String finalDate = (String) (formattedDate.format(c.getTime()));
+            list.add(new MainEventListObjectNew(finalDate));
+//            }
         }
         return list;
     }
@@ -142,7 +150,7 @@ public class ListEventsActivityRedone extends AppCompatActivity implements View.
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.list_events_menu_dateView:
-                mCalenderDialog.show(getSupportFragmentManager(),"CalenderFragment");
+                mCalenderDialog.show(getSupportFragmentManager(), "CalenderFragment");
                 break;
         }
         return super.onOptionsItemSelected(item);
