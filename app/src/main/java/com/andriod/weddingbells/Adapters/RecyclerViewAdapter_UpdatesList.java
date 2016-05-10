@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.andriod.weddingbells.R;
@@ -24,6 +25,8 @@ public class RecyclerViewAdapter_UpdatesList extends
     private static MyClickListener myClickListener;
     private CardView mCardView;
     private String TAG = "RecyclerViewAdapter_UpdatesList";
+    private ImageView mUpdatesThumnbnailView;
+    private ImageButton mUpdatesThumnbnailButton;
 
     public RecyclerViewAdapter_UpdatesList(ArrayList<EventDetailsUpdatesObject> DataSet) {
         mDataSet = DataSet;
@@ -36,7 +39,9 @@ public class RecyclerViewAdapter_UpdatesList extends
 
             mImageView = (ImageView) itemView.findViewById(R.id.UpdatesImageView);
             mCardView = (CardView) itemView.findViewById(R.id.updatesCardview);
-            
+            mUpdatesThumnbnailView = (ImageView) itemView.findViewById(R.id.UpdatesThumnbnailView);
+            mUpdatesThumnbnailButton = (ImageButton) itemView.findViewById(R.id.UpdatesThumnbnailButton);
+
             itemView.setOnClickListener(this);
         }
 
@@ -60,8 +65,7 @@ public class RecyclerViewAdapter_UpdatesList extends
 
     @Override
     public void onBindViewHolder(MainViewHolder viewHolder, int position) {
-//        mImageView.setImageDrawable(Drawable.createFromPath(mDataSet.get(position)
-//                .getmImage().toString()));
+        //add logic to extract data from
     }
 
     public void setOnItemClickListener(MyClickListener myClickListener) {

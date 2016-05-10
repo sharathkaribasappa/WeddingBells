@@ -1,15 +1,10 @@
 
 package com.andriod.weddingbells.cardlayoutfunctionality;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 
-import android.graphics.Bitmap;
+import java.util.ArrayList;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,10 +15,15 @@ import android.widget.LinearLayout;
 
 import com.andriod.weddingbells.Adapters.EventDetailsUpdatesObject;
 import com.andriod.weddingbells.Adapters.RecyclerViewAdapter_UpdatesList;
-import com.andriod.weddingbells.Adapters.RecyclerViewAdapter_UpdatesList.MyClickListener;
 import com.andriod.weddingbells.R;
-import com.andriod.weddingbells.common.BitmapScaler;
+import com.andriod.weddingbells.Utils.VolleySingleton;
 import com.andriod.weddingbells.common.CommonUtils;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
 
 public class EventDetailsUpdatesFragment extends Fragment {
 
@@ -65,7 +65,7 @@ public class EventDetailsUpdatesFragment extends Fragment {
 
     private ArrayList<EventDetailsUpdatesObject> getDataSet() {
         ArrayList<EventDetailsUpdatesObject> results = new ArrayList<EventDetailsUpdatesObject>();
-        for (int index = 0; index < 20; index++) {
+        for (int index = 0; index < 10; index++) {
             String[] comments = {
                     "Wow", "Looking Good", "Hey WTH"
             };
@@ -76,4 +76,22 @@ public class EventDetailsUpdatesFragment extends Fragment {
         return results;
     }
 
+    //method to get the updates from cloud in JSON
+    public void PostJSONRequest(String url) {
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+            (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    //mTxtDisplay.setText("Response: " + response.toString());
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // TODO Auto-generated method stub
+                }
+            });
+
+        VolleySingleton mVolleyInstance = VolleySingleton.getInstance(this.getContext());
+        mVolleyInstance.addToRequestQueue(jsObjRequest);
+    }
 }

@@ -10,6 +10,7 @@ public class EventDetailsUpdatesObject {
     private File mImage;
     private int mLikesCount;
     private int mCommentsCount;
+    private File mThumbNail;
 
     public EventDetailsUpdatesObject(String UserID, File image, int likesCount, int commentsCount,
             String[] comments) {
