@@ -2,8 +2,6 @@ package com.andriod.weddingbells;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,18 +14,18 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.andriod.weddingbells.Utils.VolleySingleton;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
-    private UserRegisterTask mAuthTask = null;
+    private static String TAG = "RegistrationActivity";
 
     // UI references.
     private EditText mFirstNameView;
@@ -40,6 +38,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private View mProgressView;
     private String mGenderSelected = "Male";
 
+    //TODO update the string values
     private static String REGISTRATION_SUCCESSFUL = "Successfully Registered";
     private static String INVALID_EMAIL = "Email Not Valid";
     private static String WEAK_PASSWORD = "Password Weak";
@@ -106,12 +105,11 @@ public class RegistrationActivity extends AppCompatActivity {
         stringMap.put("phonenumber", mPhoneNumberView.getText().toString());
         stringMap.put("gender",mGenderSelected);
 
-        if (mAuthTask != null || !isEmailValid(emailtxt) || !isPasswordValid(passwordtxt)) {
+        if (!isEmailValid(emailtxt) || !isPasswordValid(passwordtxt)) {
             return;
         }
 
-        mAuthTask = new UserRegisterTask(stringMap);
-        mAuthTask.execute();
+        userRegistrationRequest(stringMap);
     }
 
     private boolean isEmailValid(String email) {
@@ -122,75 +120,6 @@ public class RegistrationActivity extends AppCompatActivity {
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
         return password.length() > 4;
-    }
-
-    /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
-     */
-    public class UserRegisterTask extends AsyncTask<Void, Void, String> {
-
-        Map<String, String> mRegistrationMap;
-
-        UserRegisterTask(Map<String, String> stringMap) {
-            mRegistrationMap = stringMap;
-        }
-
-        @Override
-        protected String doInBackground(Void... params) {
-            // attempt authentication against a network service.
-            String jsonstr = null;
-            /*try {
-                // Simulate network access.
-                String requestBody = Util.build_Login_Registration_Parameters(mRegistrationMap);
-                ServerRequest sr = new ServerRequest();
-                JSONObject json = sr.getJSONFromUrl("http://WeddingBells.cloudapp.net:28017/register", requestBody, "POST");
-
-                if(json != null){
-                    try{
-                        jsonstr = json.getString("response");
-                    }catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return null;
-            }*/
-            return jsonstr;
-        }
-
-        @Override
-        protected void onPostExecute(final String jsonresponse) {
-            mAuthTask = null;
-            showProgress(false);
-
-            if(jsonresponse != null) {
-                /*if(REGISTRATION_SUCCESSFUL.equals(jsonresponse) || USER_REGISTERED_ALREADY.equals(jsonresponse)) {
-                    Toast.makeText(getApplication(), jsonresponse, Toast.LENGTH_LONG).show();
-                    Intent I = new Intent(RegistrationActivity.this,LoginActivity.class);
-                    startActivity(I);
-
-                    finish();
-                }
-
-                if(WEAK_PASSWORD.equals(jsonresponse)) {
-                    mPasswordView.setError(getString(R.string.weak_password));
-                    mPasswordView.requestFocus();
-                }
-
-                if(INVALID_EMAIL.equals(jsonresponse)) {
-                    mEmailView.setError(getString(R.string.weak_password));
-                    mEmailView.requestFocus();
-                } */
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
-            showProgress(false);
-        }
     }
 
     /**
@@ -228,4 +157,46 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
 
+    private void userRegistrationRequest(Map<String, String> stringMap) {
+        //TODO url format to be updated for user registration
+        String url = "http://10.0.2.2:8080/WeddingBell/";
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e(TAG,"*** response success" + response);
+
+                        showProgress(false);
+                        /*if(response != null) {
+                        if(REGISTRATION_SUCCESSFUL.equals(response) || USER_REGISTERED_ALREADY.equals(response)) {
+                            Toast.makeText(getApplication(), response, Toast.LENGTH_LONG).show();
+                            Intent I = new Intent(RegistrationActivity.this,LoginActivity.class);
+                            startActivity(I);
+
+                            finish();
+                        }
+
+                        if(WEAK_PASSWORD.equals(response)) {
+                            mPasswordView.setError(getString(R.string.weak_password));
+                            mPasswordView.requestFocus();
+                        }
+
+                        if(INVALID_EMAIL.equals(response)) {
+                            mEmailView.setError(getString(R.string.weak_password));
+                            mEmailView.requestFocus();
+                        } */
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG,"*** response failure " + error.getMessage());
+                // TODO Auto-generated method stub
+                showProgress(false);
+                Toast.makeText(getApplicationContext(),"invalid username or password",Toast.LENGTH_LONG).show();
+            }
+        });
+        VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
+    }
 }
